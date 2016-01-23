@@ -33,8 +33,8 @@ namespace AnkietaP.Controllers
             {
                 return HttpNotFound();
             }
-            if (tab == 2) { wynik_bool.nie += 1; }
-            if (tab == 3) { wynik_bool.tak += 1; }
+            if (tab == 3) { wynik_bool.nie += 1; }
+            if (tab == 2) { wynik_bool.tak += 1; }
 
             ViewBag.id_opcje = new SelectList(db.opcjes, "wynik_bool","tak","nie", wynik_bool.id_wynik_bool);
             return View(wynik_bool);
