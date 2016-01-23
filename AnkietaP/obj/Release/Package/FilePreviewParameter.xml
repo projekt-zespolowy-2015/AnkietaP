@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Ankieta-zi61f63m.cloudapp.net" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="AnkietaEntities-Web.config Connection String" description="" value="metadata=res://*/Models.Mieszkaniec.csdl|res://*/Models.Mieszkaniec.ssdl|res://*/Models.Mieszkaniec.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP\SQLSRV;initial catalog=Ankieta;user id=sa;password=projekt;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnkietaEntities']/@connectionString" />
+  </parameter>
+  <parameter name="AnkietaEntities1-Web.config Connection String" description="" value="metadata=res://*/Models.localadmin.csdl|res://*/Models.localadmin.ssdl|res://*/Models.localadmin.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP\SQLSRV;initial catalog=Ankieta;user id=sa;password=projekt;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnkietaEntities1']/@connectionString" />
+  </parameter>
+  <parameter name="AnkietaEntities2-Web.config Connection String" description="" value="metadata=res://*/Models.AnkietaP.csdl|res://*/Models.AnkietaP.ssdl|res://*/Models.AnkietaP.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP\SQLSRV;initial catalog=Ankieta;user id=sa;password=projekt;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnkietaEntities2']/@connectionString" />
+  </parameter>
+  <parameter name="AnkietaEntities3-Web.config Connection String" description="" value="metadata=res://*/Models.AnkietaP.csdl|res://*/Models.AnkietaP.ssdl|res://*/Models.AnkietaP.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=DESKTOP\SQLSRV;Initial Catalog=Ankieta;User ID=sa;Password=projekt;MultipleActiveResultSets=True;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnkietaEntities3']/@connectionString" />
+  </parameter>
+  <parameter name="AnkietaEntities4-Web.config Connection String" description="" value="metadata=res://*/Models.AnkietaP.csdl|res://*/Models.AnkietaP.ssdl|res://*/Models.AnkietaP.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP\SQLSRV;initial catalog=Ankieta;user id=sa;password=projekt;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnkietaEntities4']/@connectionString" />
+  </parameter>
+  <parameter name="AnkietaEntitiesN-Web.config Connection String" description="" value="metadata=res://*/Controllers.AnkietaP.csdl|res://*/Controllers.AnkietaP.ssdl|res://*/Controllers.AnkietaP.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP\SQLSRV;initial catalog=Ankieta;user id=sa;password=projekt;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnkietaEntitiesN']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=DESKTOP\SQLSRV;Database=Ankieta; User ID=sa; Password=projekt " tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rafal\\Documents\\Visual\ Studio\ 2015\\Projects\\AnkietaP\\AnkietaP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

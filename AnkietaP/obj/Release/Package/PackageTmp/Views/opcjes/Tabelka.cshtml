@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AnkietaP.Models.opcje>
+
+@*
+
+<
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+         <tr>
+             <td>
+                 @Html.DisplayFor(modelItem => item.nazwa)    
+             </td>
+             <td>
+                 
+                 <input type="button" value="Wybierz" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = item.id_pytanie , tab = 1   }), null)'" />
+                
+                 
+             </td>
+         </tr>
+}
+</table>
+*@
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @* @Html.DisplayNameFor(model => model.nazwa) *@
+        </th>
+        <th>
+            @*   @Html.DisplayNameFor(model => model.pytanie.tresc) *@
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazwa)
+            </td>
+            <td>
+                <input type="button" value="Tak" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = item.id_pytanie , tab = 2   }), null)'" />
+                <input type="button" value="Nie" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = item.id_pytanie , tab = 3   }), null)'" />
+            </td>
+        </tr>
+    }
+</table>

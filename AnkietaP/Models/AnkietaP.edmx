@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AnkietaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adres">
+          <Key>
+            <PropertyRef Name="id_adres" />
+          </Key>
+          <Property Name="id_adres" Type="int" Nullable="false" />
+          <Property Name="miejscowosc" Type="varchar" MaxLength="100" />
+          <Property Name="ulica" Type="varchar" MaxLength="100" />
+          <Property Name="dom" Type="varchar" MaxLength="100" />
+          <Property Name="lokal" Type="varchar" MaxLength="100" />
+          <Property Name="kod_pocztowy" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ankieta">
+          <Key>
+            <PropertyRef Name="id_ankieta" />
+          </Key>
+          <Property Name="id_ankieta" Type="int" Nullable="false" />
+          <Property Name="opis" Type="varchar" MaxLength="100" />
+          <Property Name="data_od" Type="datetime" />
+          <Property Name="data_do" Type="datetime" />
+        </EntityType>
+        <EntityType Name="kategoria_pytania">
+          <Key>
+            <PropertyRef Name="id_kategoria_pytania" />
+          </Key>
+          <Property Name="id_kategoria_pytania" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="localadmin">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="int" Nullable="false" />
+          <Property Name="loginin" Type="text" />
+          <Property Name="pass" Type="text" />
+          <Property Name="imie" Type="text" />
+          <Property Name="nazwisko" Type="text" />
+          <Property Name="telefon" Type="text" />
+          <Property Name="email" Type="text" />
+        </EntityType>
+        <EntityType Name="miejscowosc">
+          <Key>
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="id_woj" Type="int" />
+          <Property Name="id_pow" Type="int" />
+          <Property Name="id_gmi" Type="int" />
+          <Property Name="symbol" Type="int" Nullable="false" />
+          <Property Name="symbol_pods" Type="int" />
+          <Property Name="nazwa" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="mieszkaniec">
+          <Key>
+            <PropertyRef Name="id_mieszkaniec" />
+          </Key>
+          <Property Name="id_mieszkaniec" Type="int" Nullable="false" />
+          <Property Name="pesel" Type="varchar" MaxLength="50" />
+          <Property Name="imie" Type="varchar" MaxLength="50" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="50" />
+          <Property Name="telefon" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="opcje">
+          <Key>
+            <PropertyRef Name="id_opcje" />
+          </Key>
+          <Property Name="id_opcje" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="100" />
+          <Property Name="id_pytanie" Type="int" />
+        </EntityType>
+        <EntityType Name="powiat_gmina">
+          <Key>
+            <PropertyRef Name="id_woj" />
+            <PropertyRef Name="id_pow" />
+            <PropertyRef Name="id_gmi" />
+          </Key>
+          <Property Name="id_powiat_gmina" Type="int" />
+          <Property Name="id_woj" Type="int" Nullable="false" />
+          <Property Name="id_pow" Type="int" Nullable="false" />
+          <Property Name="id_gmi" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="int" />
+          <Property Name="naz_dod" Type="int" />
+        </EntityType>
+        <EntityType Name="pytanie">
+          <Key>
+            <PropertyRef Name="id_pytanie" />
+          </Key>
+          <Property Name="id_pytanie" Type="int" Nullable="false" />
+          <Property Name="tresc" Type="varchar" MaxLength="100" />
+          <Property Name="id_ankieta" Type="int" />
+          <Property Name="id_kategoria_pytania" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ulica">
+          <Key>
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="id_woj" Type="int" />
+          <Property Name="id_pow" Type="int" />
+          <Property Name="id_gmi" Type="int" />
+          <Property Name="symbol" Type="int" Nullable="false" />
+          <Property Name="symbol_pods" Type="int" />
+          <Property Name="cecha" Type="varchar" MaxLength="100" />
+          <Property Name="nazwa_1" Type="varchar" MaxLength="100" />
+          <Property Name="nazwa_2" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="wynik_bool">
+          <Key>
+            <PropertyRef Name="id_wynik_bool" />
+          </Key>
+          <Property Name="id_wynik_bool" Type="int" Nullable="false" />
+          <Property Name="tak" Type="int" />
+          <Property Name="nie" Type="int" />
+          <Property Name="id_pytanie" Type="int" />
+        </EntityType>
+        <EntityType Name="wynik_lista">
+          <Key>
+            <PropertyRef Name="id_wynik_lista" />
+          </Key>
+          <Property Name="id_wynik_lista" Type="int" Nullable="false" />
+          <Property Name="ilosc" Type="int" />
+          <Property Name="id_opcje" Type="int" />
+        </EntityType>
+        <Association Name="FK__opcje__id_pytani__17036CC0">
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="0..1" />
+          <End Role="opcje" Type="Self.opcje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pytanie">
+              <PropertyRef Name="id_pytanie" />
+            </Principal>
+            <Dependent Role="opcje">
+              <PropertyRef Name="id_pytanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pytanie__id_anki__1332DBDC">
+          <End Role="ankieta" Type="Self.ankieta" Multiplicity="0..1" />
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ankieta">
+              <PropertyRef Name="id_ankieta" />
+            </Principal>
+            <Dependent Role="pytanie">
+              <PropertyRef Name="id_ankieta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pytanie__id_kate__14270015">
+          <End Role="kategoria_pytania" Type="Self.kategoria_pytania" Multiplicity="0..1" />
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategoria_pytania">
+              <PropertyRef Name="id_kategoria_pytania" />
+            </Principal>
+            <Dependent Role="pytanie">
+              <PropertyRef Name="id_kategoria_pytania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wynik_boo__id_py__1CBC4616">
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="0..1" />
+          <End Role="wynik_bool" Type="Self.wynik_bool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pytanie">
+              <PropertyRef Name="id_pytanie" />
+            </Principal>
+            <Dependent Role="wynik_bool">
+              <PropertyRef Name="id_pytanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wynik_lis__id_op__19DFD96B">
+          <End Role="opcje" Type="Self.opcje" Multiplicity="0..1" />
+          <End Role="wynik_lista" Type="Self.wynik_lista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="opcje">
+              <PropertyRef Name="id_opcje" />
+            </Principal>
+            <Dependent Role="wynik_lista">
+              <PropertyRef Name="id_opcje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnkietaModelStoreContainer">
+          <EntitySet Name="adres" EntityType="Self.adres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ankieta" EntityType="Self.ankieta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kategoria_pytania" EntityType="Self.kategoria_pytania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="localadmin" EntityType="Self.localadmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="miejscowosc" EntityType="Self.miejscowosc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mieszkaniec" EntityType="Self.mieszkaniec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="opcje" EntityType="Self.opcje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="powiat_gmina" EntityType="Self.powiat_gmina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pytanie" EntityType="Self.pytanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ulica" EntityType="Self.ulica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wynik_bool" EntityType="Self.wynik_bool" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wynik_lista" EntityType="Self.wynik_lista" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__opcje__id_pytani__17036CC0" Association="Self.FK__opcje__id_pytani__17036CC0">
+            <End Role="pytanie" EntitySet="pytanie" />
+            <End Role="opcje" EntitySet="opcje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pytanie__id_anki__1332DBDC" Association="Self.FK__pytanie__id_anki__1332DBDC">
+            <End Role="ankieta" EntitySet="ankieta" />
+            <End Role="pytanie" EntitySet="pytanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pytanie__id_kate__14270015" Association="Self.FK__pytanie__id_kate__14270015">
+            <End Role="kategoria_pytania" EntitySet="kategoria_pytania" />
+            <End Role="pytanie" EntitySet="pytanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wynik_boo__id_py__1CBC4616" Association="Self.FK__wynik_boo__id_py__1CBC4616">
+            <End Role="pytanie" EntitySet="pytanie" />
+            <End Role="wynik_bool" EntitySet="wynik_bool" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wynik_lis__id_op__19DFD96B" Association="Self.FK__wynik_lis__id_op__19DFD96B">
+            <End Role="opcje" EntitySet="opcje" />
+            <End Role="wynik_lista" EntitySet="wynik_lista" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnkietaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adre">
+          <Key>
+            <PropertyRef Name="id_adres" />
+          </Key>
+          <Property Name="id_adres" Type="Int32" Nullable="false" />
+          <Property Name="miejscowosc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ulica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lokal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="kod_pocztowy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ankieta">
+          <Key>
+            <PropertyRef Name="id_ankieta" />
+          </Key>
+          <Property Name="id_ankieta" Type="Int32" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pytanies" Relationship="Self.FK__pytanie__id_anki__1DE57479" FromRole="ankieta" ToRole="pytanie" />
+          <Property Name="data_od" Type="DateTime" Precision="3" />
+          <Property Name="data_do" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="kategoria_pytania">
+          <Key>
+            <PropertyRef Name="id_kategoria_pytania" />
+          </Key>
+          <Property Name="id_kategoria_pytania" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="pytanies" Relationship="Self.FK__pytanie__id_kate__1ED998B2" FromRole="kategoria_pytania" ToRole="pytanie" />
+        </EntityType>
+        <EntityType Name="localadmin">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="Int32" Nullable="false" />
+          <Property Name="loginin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="imie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="miejscowosc">
+          <Key>
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="id_woj" Type="Int32" />
+          <Property Name="id_pow" Type="Int32" />
+          <Property Name="id_gmi" Type="Int32" />
+          <Property Name="symbol" Type="Int32" Nullable="false" />
+          <Property Name="symbol_pods" Type="Int32" />
+          <Property Name="nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mieszkaniec">
+          <Key>
+            <PropertyRef Name="id_mieszkaniec" />
+          </Key>
+          <Property Name="id_mieszkaniec" Type="Int32" Nullable="false" />
+          <Property Name="pesel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="opcje">
+          <Key>
+            <PropertyRef Name="id_opcje" />
+          </Key>
+          <Property Name="id_opcje" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_pytanie" Type="Int32" />
+          <NavigationProperty Name="pytanie" Relationship="Self.FK__opcje__id_pytani__21B6055D" FromRole="opcje" ToRole="pytanie" />
+          <NavigationProperty Name="wynik_lista" Relationship="Self.FK__wynik_lis__id_op__24927208" FromRole="opcje" ToRole="wynik_lista" />
+        </EntityType>
+        <EntityType Name="powiat_gmina">
+          <Key>
+            <PropertyRef Name="id_woj" />
+            <PropertyRef Name="id_pow" />
+            <PropertyRef Name="id_gmi" />
+          </Key>
+          <Property Name="id_powiat_gmina" Type="Int32" />
+          <Property Name="id_woj" Type="Int32" Nullable="false" />
+          <Property Name="id_pow" Type="Int32" Nullable="false" />
+          <Property Name="id_gmi" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="Int32" />
+          <Property Name="naz_dod" Type="Int32" />
+        </EntityType>
+        <EntityType Name="pytanie">
+          <Key>
+            <PropertyRef Name="id_pytanie" />
+          </Key>
+          <Property Name="id_pytanie" Type="Int32" Nullable="false" />
+          <Property Name="tresc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_ankieta" Type="Int32" />
+          <Property Name="id_kategoria_pytania" Type="Int32" />
+          <NavigationProperty Name="ankieta" Relationship="Self.FK__pytanie__id_anki__1DE57479" FromRole="pytanie" ToRole="ankieta" />
+          <NavigationProperty Name="kategoria_pytania" Relationship="Self.FK__pytanie__id_kate__1ED998B2" FromRole="pytanie" ToRole="kategoria_pytania" />
+          <NavigationProperty Name="opcjes" Relationship="Self.FK__opcje__id_pytani__21B6055D" FromRole="pytanie" ToRole="opcje" />
+          <NavigationProperty Name="wynik_bool" Relationship="Self.FK__wynik_boo__id_py__276EDEB3" FromRole="pytanie" ToRole="wynik_bool" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ulica">
+          <Key>
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="id_woj" Type="Int32" />
+          <Property Name="id_pow" Type="Int32" />
+          <Property Name="id_gmi" Type="Int32" />
+          <Property Name="symbol" Type="Int32" Nullable="false" />
+          <Property Name="symbol_pods" Type="Int32" />
+          <Property Name="cecha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nazwa_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nazwa_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="wynik_bool">
+          <Key>
+            <PropertyRef Name="id_wynik_bool" />
+          </Key>
+          <Property Name="id_wynik_bool" Type="Int32" Nullable="false" />
+          <Property Name="tak" Type="Int32" />
+          <Property Name="nie" Type="Int32" />
+          <Property Name="id_pytanie" Type="Int32" />
+          <NavigationProperty Name="pytanie" Relationship="Self.FK__wynik_boo__id_py__276EDEB3" FromRole="wynik_bool" ToRole="pytanie" />
+        </EntityType>
+        <EntityType Name="wynik_lista">
+          <Key>
+            <PropertyRef Name="id_wynik_lista" />
+          </Key>
+          <Property Name="id_wynik_lista" Type="Int32" Nullable="false" />
+          <Property Name="ilosc" Type="Int32" />
+          <Property Name="id_opcje" Type="Int32" />
+          <NavigationProperty Name="opcje" Relationship="Self.FK__wynik_lis__id_op__24927208" FromRole="wynik_lista" ToRole="opcje" />
+        </EntityType>
+        <Association Name="FK__pytanie__id_anki__1DE57479">
+          <End Role="ankieta" Type="Self.ankieta" Multiplicity="0..1" />
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ankieta">
+              <PropertyRef Name="id_ankieta" />
+            </Principal>
+            <Dependent Role="pytanie">
+              <PropertyRef Name="id_ankieta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pytanie__id_kate__1ED998B2">
+          <End Role="kategoria_pytania" Type="Self.kategoria_pytania" Multiplicity="0..1" />
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategoria_pytania">
+              <PropertyRef Name="id_kategoria_pytania" />
+            </Principal>
+            <Dependent Role="pytanie">
+              <PropertyRef Name="id_kategoria_pytania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__opcje__id_pytani__21B6055D">
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="0..1" />
+          <End Role="opcje" Type="Self.opcje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pytanie">
+              <PropertyRef Name="id_pytanie" />
+            </Principal>
+            <Dependent Role="opcje">
+              <PropertyRef Name="id_pytanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wynik_lis__id_op__24927208">
+          <End Role="opcje" Type="Self.opcje" Multiplicity="0..1" />
+          <End Role="wynik_lista" Type="Self.wynik_lista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="opcje">
+              <PropertyRef Name="id_opcje" />
+            </Principal>
+            <Dependent Role="wynik_lista">
+              <PropertyRef Name="id_opcje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wynik_boo__id_py__276EDEB3">
+          <End Role="pytanie" Type="Self.pytanie" Multiplicity="0..1" />
+          <End Role="wynik_bool" Type="Self.wynik_bool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pytanie">
+              <PropertyRef Name="id_pytanie" />
+            </Principal>
+            <Dependent Role="wynik_bool">
+              <PropertyRef Name="id_pytanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnkietaEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adres" EntityType="Self.adre" />
+          <EntitySet Name="ankietas" EntityType="Self.ankieta" />
+          <EntitySet Name="kategoria_pytania" EntityType="Self.kategoria_pytania" />
+          <EntitySet Name="localadmins" EntityType="Self.localadmin" />
+          <EntitySet Name="miejscowoscs" EntityType="Self.miejscowosc" />
+          <EntitySet Name="mieszkaniecs" EntityType="Self.mieszkaniec" />
+          <EntitySet Name="opcjes" EntityType="Self.opcje" />
+          <EntitySet Name="powiat_gmina" EntityType="Self.powiat_gmina" />
+          <EntitySet Name="pytanies" EntityType="Self.pytanie" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ulicas" EntityType="Self.ulica" />
+          <EntitySet Name="wynik_bool" EntityType="Self.wynik_bool" />
+          <EntitySet Name="wynik_lista" EntityType="Self.wynik_lista" />
+          <AssociationSet Name="FK__pytanie__id_anki__1DE57479" Association="Self.FK__pytanie__id_anki__1DE57479">
+            <End Role="ankieta" EntitySet="ankietas" />
+            <End Role="pytanie" EntitySet="pytanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pytanie__id_kate__1ED998B2" Association="Self.FK__pytanie__id_kate__1ED998B2">
+            <End Role="kategoria_pytania" EntitySet="kategoria_pytania" />
+            <End Role="pytanie" EntitySet="pytanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__opcje__id_pytani__21B6055D" Association="Self.FK__opcje__id_pytani__21B6055D">
+            <End Role="pytanie" EntitySet="pytanies" />
+            <End Role="opcje" EntitySet="opcjes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wynik_lis__id_op__24927208" Association="Self.FK__wynik_lis__id_op__24927208">
+            <End Role="opcje" EntitySet="opcjes" />
+            <End Role="wynik_lista" EntitySet="wynik_lista" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wynik_boo__id_py__276EDEB3" Association="Self.FK__wynik_boo__id_py__276EDEB3">
+            <End Role="pytanie" EntitySet="pytanies" />
+            <End Role="wynik_bool" EntitySet="wynik_bool" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnkietaModelStoreContainer" CdmEntityContainer="AnkietaEntities3">
+          <EntitySetMapping Name="adres">
+            <EntityTypeMapping TypeName="AnkietaModel.adre">
+              <MappingFragment StoreEntitySet="adres">
+                <ScalarProperty Name="id_adres" ColumnName="id_adres" />
+                <ScalarProperty Name="miejscowosc" ColumnName="miejscowosc" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="dom" ColumnName="dom" />
+                <ScalarProperty Name="lokal" ColumnName="lokal" />
+                <ScalarProperty Name="kod_pocztowy" ColumnName="kod_pocztowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ankietas">
+            <EntityTypeMapping TypeName="AnkietaModel.ankieta">
+              <MappingFragment StoreEntitySet="ankieta">
+                <ScalarProperty Name="data_do" ColumnName="data_do" />
+                <ScalarProperty Name="data_od" ColumnName="data_od" />
+                <ScalarProperty Name="id_ankieta" ColumnName="id_ankieta" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategoria_pytania">
+            <EntityTypeMapping TypeName="AnkietaModel.kategoria_pytania">
+              <MappingFragment StoreEntitySet="kategoria_pytania">
+                <ScalarProperty Name="id_kategoria_pytania" ColumnName="id_kategoria_pytania" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="localadmins">
+            <EntityTypeMapping TypeName="AnkietaModel.localadmin">
+              <MappingFragment StoreEntitySet="localadmin">
+                <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+                <ScalarProperty Name="loginin" ColumnName="loginin" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="miejscowoscs">
+            <EntityTypeMapping TypeName="AnkietaModel.miejscowosc">
+              <MappingFragment StoreEntitySet="miejscowosc">
+                <ScalarProperty Name="id_woj" ColumnName="id_woj" />
+                <ScalarProperty Name="id_pow" ColumnName="id_pow" />
+                <ScalarProperty Name="id_gmi" ColumnName="id_gmi" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="symbol_pods" ColumnName="symbol_pods" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mieszkaniecs">
+            <EntityTypeMapping TypeName="AnkietaModel.mieszkaniec">
+              <MappingFragment StoreEntitySet="mieszkaniec">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="id_mieszkaniec" ColumnName="id_mieszkaniec" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="opcjes">
+            <EntityTypeMapping TypeName="AnkietaModel.opcje">
+              <MappingFragment StoreEntitySet="opcje">
+                <ScalarProperty Name="id_opcje" ColumnName="id_opcje" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="id_pytanie" ColumnName="id_pytanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="powiat_gmina">
+            <EntityTypeMapping TypeName="AnkietaModel.powiat_gmina">
+              <MappingFragment StoreEntitySet="powiat_gmina">
+                <ScalarProperty Name="id_powiat_gmina" ColumnName="id_powiat_gmina" />
+                <ScalarProperty Name="id_woj" ColumnName="id_woj" />
+                <ScalarProperty Name="id_pow" ColumnName="id_pow" />
+                <ScalarProperty Name="id_gmi" ColumnName="id_gmi" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="naz_dod" ColumnName="naz_dod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pytanies">
+            <EntityTypeMapping TypeName="AnkietaModel.pytanie">
+              <MappingFragment StoreEntitySet="pytanie">
+                <ScalarProperty Name="id_pytanie" ColumnName="id_pytanie" />
+                <ScalarProperty Name="tresc" ColumnName="tresc" />
+                <ScalarProperty Name="id_ankieta" ColumnName="id_ankieta" />
+                <ScalarProperty Name="id_kategoria_pytania" ColumnName="id_kategoria_pytania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AnkietaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ulicas">
+            <EntityTypeMapping TypeName="AnkietaModel.ulica">
+              <MappingFragment StoreEntitySet="ulica">
+                <ScalarProperty Name="id_woj" ColumnName="id_woj" />
+                <ScalarProperty Name="id_pow" ColumnName="id_pow" />
+                <ScalarProperty Name="id_gmi" ColumnName="id_gmi" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="symbol_pods" ColumnName="symbol_pods" />
+                <ScalarProperty Name="cecha" ColumnName="cecha" />
+                <ScalarProperty Name="nazwa_1" ColumnName="nazwa_1" />
+                <ScalarProperty Name="nazwa_2" ColumnName="nazwa_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wynik_bool">
+            <EntityTypeMapping TypeName="AnkietaModel.wynik_bool">
+              <MappingFragment StoreEntitySet="wynik_bool">
+                <ScalarProperty Name="id_wynik_bool" ColumnName="id_wynik_bool" />
+                <ScalarProperty Name="tak" ColumnName="tak" />
+                <ScalarProperty Name="nie" ColumnName="nie" />
+                <ScalarProperty Name="id_pytanie" ColumnName="id_pytanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wynik_lista">
+            <EntityTypeMapping TypeName="AnkietaModel.wynik_lista">
+              <MappingFragment StoreEntitySet="wynik_lista">
+                <ScalarProperty Name="id_wynik_lista" ColumnName="id_wynik_lista" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="id_opcje" ColumnName="id_opcje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

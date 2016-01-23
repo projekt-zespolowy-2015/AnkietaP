@@ -1,0 +1,73 @@
+﻿@model AnkietaP.Models.localadmin
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>localadmin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.loginin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

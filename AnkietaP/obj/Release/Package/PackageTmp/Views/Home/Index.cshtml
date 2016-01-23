@@ -1,0 +1,37 @@
+﻿@using AnkietaP.Models
+@model LoginViewModel
+@* @model mieszkaniec *@
+
+@{
+    ViewBag.Title = "Strona główna";
+}
+<!--
+<div class="jumbotron">
+</div>-->
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Witaj w programie Sodia</h3>
+        @using (Html.BeginForm("DetailsP", "mieszkaniecs", FormMethod.Get))
+        {
+            <p>
+                Podaj pesel: @Html.TextBox("pes", ViewBag.CurrentFilter as string)
+                
+                <input type="submit" value="Dalej" />
+            </p>
+        }
+          @*  @Html.LabelFor(model => model.pesel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pesel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pesel, "", new { @class = "text-danger" }) *@
+                
+
+
+            </div>
+
+
+
+</div>
+
+ 
+  

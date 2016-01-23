@@ -1,0 +1,35 @@
+﻿@model AnkietaP.Models.opcje
+
+@{
+    ViewBag.Title = "Details";
+    
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>opcje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pytanie.tresc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pytanie.tresc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_opcje }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

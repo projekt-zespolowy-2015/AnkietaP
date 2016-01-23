@@ -1,0 +1,25 @@
+﻿@model AnkietaP.Models.pytanie
+
+
+<table class="table">
+    <tr>
+        <th>
+            @* @Html.DisplayNameFor(model => model.nazwa) *@
+        </th>
+        <th>
+            @*   @Html.DisplayNameFor(model => model.pytanie.tresc) *@
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.opcjes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazwa)
+            </td>
+            <td>
+                <input type="button" value="Wybierz" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = item.id_pytanie , tab = 1   }), null)'" />
+            </td>
+        </tr>
+    }
+</table>

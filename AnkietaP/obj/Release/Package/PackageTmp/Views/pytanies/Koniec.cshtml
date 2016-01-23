@@ -1,0 +1,18 @@
+﻿@model IEnumerable<AnkietaP.Models.pytanie>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Koniec</h2>
+
+
+<div>
+<p> Dziekujemy za udział w ankiecie </p> <br />
+
+    <p> Powrót do strony głównej</p> 
+
+    
+
+<input type="button" value="OK" onclick="location.href='@Url.Action("Index", "Home",  null)'" />
+</div>

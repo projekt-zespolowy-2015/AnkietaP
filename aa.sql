@@ -1,0 +1,1 @@
+select id_mieszkaniec from mieszkaniec where pesel LIKE '70091403019';

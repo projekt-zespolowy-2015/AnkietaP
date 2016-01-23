@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AnkietaP.Models.ankieta>
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_od)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_do)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_od)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_do)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_ankieta }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_ankieta }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_ankieta })
+        </td>
+    </tr>
+}
+
+</table>

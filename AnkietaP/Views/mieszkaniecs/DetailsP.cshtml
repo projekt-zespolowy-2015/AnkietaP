@@ -1,0 +1,71 @@
+﻿@model AnkietaP.Models.mieszkaniec
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Witaj</h2> 
+
+<div>
+    <h4>To sa Twoje aktualne dane, jeśli chcesz je zmienic kliknij Edytuj </h4>
+    <hr />
+  
+    <table class="table">
+        <tr>
+            <th>
+                pesel
+            </th>
+            <th>
+                imie
+            </th>
+            <th>
+                nazwisko
+            </th>
+            <th>
+                telefon
+            </th>
+            <th>
+                email
+            </th>
+            <th></th>
+        </tr>
+
+       @* @foreach (var item in Model) *@
+        
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.pesel)
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.nazwisko)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.telefon)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.email)
+                </td>
+                <td>
+                 @*   @Html.Action("Edit", "Edit", new { id = Model.id_mieszkaniec }) |
+       @Html.Action("Details", "Details", new { id = Model.id_mieszkaniec })
+    @*   @Html.ActionLink("Delete", "Delete", new { id = item.id_mieszkaniec }) *@
+
+                    <input type="button" value="Edytuj" onclick="location.href='@Url.Action("Edit", new { id = Model.id_mieszkaniec, tab=3 }), null)'" />
+                </td>
+            </tr>
+        
+        </table>
+        <p>
+            Przejdz do ankiet: <input type="button" value="Dalej" onclick="location.href='@Url.Action("Lista", "ankietas", null, null)'" />
+            
+        </p>
+</div>
+<p>
+  @*  @Html.ActionLink("Edit", "Edit", new { id = Model.id_mieszkaniec }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

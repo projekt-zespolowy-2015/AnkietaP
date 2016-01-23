@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnkietaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adre">
+    <Key>
+      <PropertyRef Name="id_adres" />
+    </Key>
+    <Property Name="id_adres" Type="Int32" Nullable="false" />
+    <Property Name="miejscowosc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ulica" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lokal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="kod_pocztowy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ankieta">
+    <Key>
+      <PropertyRef Name="id_ankieta" />
+    </Key>
+    <Property Name="id_ankieta" Type="Int32" Nullable="false" />
+    <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="data_od" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="dota_do" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="pytanies" Relationship="Self.FK__pytanie__id_anki__1DE57479" FromRole="ankieta" ToRole="pytanie" />
+  </EntityType>
+  <EntityType Name="kategoria_pytania">
+    <Key>
+      <PropertyRef Name="id_kategoria_pytania" />
+    </Key>
+    <Property Name="id_kategoria_pytania" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pytanies" Relationship="Self.FK__pytanie__id_kate__1ED998B2" FromRole="kategoria_pytania" ToRole="pytanie" />
+  </EntityType>
+  <EntityType Name="miejscowosc">
+    <Key>
+      <PropertyRef Name="symbol" />
+    </Key>
+    <Property Name="id_woj" Type="Int32" />
+    <Property Name="id_pow" Type="Int32" />
+    <Property Name="id_gmi" Type="Int32" />
+    <Property Name="symbol" Type="Int32" Nullable="false" />
+    <Property Name="symbol_pods" Type="Int32" />
+    <Property Name="nazwa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mieszkaniec">
+    <Key>
+      <PropertyRef Name="id_mieszkaniec" />
+    </Key>
+    <Property Name="id_mieszkaniec" Type="Int32" Nullable="false" />
+    <Property Name="pesel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nazwisko" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="opcje">
+    <Key>
+      <PropertyRef Name="id_opcje" />
+    </Key>
+    <Property Name="id_opcje" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id_pytanie" Type="Int32" />
+    <NavigationProperty Name="pytanie" Relationship="Self.FK__opcje__id_pytani__21B6055D" FromRole="opcje" ToRole="pytanie" />
+    <NavigationProperty Name="wynik_lista" Relationship="Self.FK__wynik_lis__id_op__24927208" FromRole="opcje" ToRole="wynik_lista" />
+  </EntityType>
+  <EntityType Name="powiat_gmina">
+    <Key>
+      <PropertyRef Name="id_woj" />
+      <PropertyRef Name="id_pow" />
+      <PropertyRef Name="id_gmi" />
+    </Key>
+    <Property Name="id_powiat_gmina" Type="Int32" />
+    <Property Name="id_woj" Type="Int32" Nullable="false" />
+    <Property Name="id_pow" Type="Int32" Nullable="false" />
+    <Property Name="id_gmi" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="Int32" />
+    <Property Name="naz_dod" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pytanie">
+    <Key>
+      <PropertyRef Name="id_pytanie" />
+    </Key>
+    <Property Name="id_pytanie" Type="Int32" Nullable="false" />
+    <Property Name="tresc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id_ankieta" Type="Int32" />
+    <Property Name="id_kategoria_pytania" Type="Int32" />
+    <NavigationProperty Name="ankieta" Relationship="Self.FK__pytanie__id_anki__1DE57479" FromRole="pytanie" ToRole="ankieta" />
+    <NavigationProperty Name="kategoria_pytania" Relationship="Self.FK__pytanie__id_kate__1ED998B2" FromRole="pytanie" ToRole="kategoria_pytania" />
+    <NavigationProperty Name="opcjes" Relationship="Self.FK__opcje__id_pytani__21B6055D" FromRole="pytanie" ToRole="opcje" />
+    <NavigationProperty Name="wynik_bool" Relationship="Self.FK__wynik_boo__id_py__276EDEB3" FromRole="pytanie" ToRole="wynik_bool" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ulica">
+    <Key>
+      <PropertyRef Name="symbol" />
+    </Key>
+    <Property Name="id_woj" Type="Int32" />
+    <Property Name="id_pow" Type="Int32" />
+    <Property Name="id_gmi" Type="Int32" />
+    <Property Name="symbol" Type="Int32" Nullable="false" />
+    <Property Name="symbol_pods" Type="Int32" />
+    <Property Name="cecha" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nazwa_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nazwa_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="wynik_bool">
+    <Key>
+      <PropertyRef Name="id_wynik_bool" />
+    </Key>
+    <Property Name="id_wynik_bool" Type="Int32" Nullable="false" />
+    <Property Name="tak" Type="Int32" />
+    <Property Name="nie" Type="Int32" />
+    <Property Name="id_pytanie" Type="Int32" />
+    <NavigationProperty Name="pytanie" Relationship="Self.FK__wynik_boo__id_py__276EDEB3" FromRole="wynik_bool" ToRole="pytanie" />
+  </EntityType>
+  <EntityType Name="wynik_lista">
+    <Key>
+      <PropertyRef Name="id_wynik_lista" />
+    </Key>
+    <Property Name="id_wynik_lista" Type="Int32" Nullable="false" />
+    <Property Name="ilosc" Type="Int32" />
+    <Property Name="id_opcje" Type="Int32" />
+    <NavigationProperty Name="opcje" Relationship="Self.FK__wynik_lis__id_op__24927208" FromRole="wynik_lista" ToRole="opcje" />
+  </EntityType>
+  <Association Name="FK__pytanie__id_anki__1DE57479">
+    <End Role="ankieta" Type="Self.ankieta" Multiplicity="0..1" />
+    <End Role="pytanie" Type="Self.pytanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ankieta">
+        <PropertyRef Name="id_ankieta" />
+      </Principal>
+      <Dependent Role="pytanie">
+        <PropertyRef Name="id_ankieta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pytanie__id_kate__1ED998B2">
+    <End Role="kategoria_pytania" Type="Self.kategoria_pytania" Multiplicity="0..1" />
+    <End Role="pytanie" Type="Self.pytanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategoria_pytania">
+        <PropertyRef Name="id_kategoria_pytania" />
+      </Principal>
+      <Dependent Role="pytanie">
+        <PropertyRef Name="id_kategoria_pytania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__opcje__id_pytani__21B6055D">
+    <End Role="pytanie" Type="Self.pytanie" Multiplicity="0..1" />
+    <End Role="opcje" Type="Self.opcje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pytanie">
+        <PropertyRef Name="id_pytanie" />
+      </Principal>
+      <Dependent Role="opcje">
+        <PropertyRef Name="id_pytanie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wynik_lis__id_op__24927208">
+    <End Role="opcje" Type="Self.opcje" Multiplicity="0..1" />
+    <End Role="wynik_lista" Type="Self.wynik_lista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="opcje">
+        <PropertyRef Name="id_opcje" />
+      </Principal>
+      <Dependent Role="wynik_lista">
+        <PropertyRef Name="id_opcje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wynik_boo__id_py__276EDEB3">
+    <End Role="pytanie" Type="Self.pytanie" Multiplicity="0..1" />
+    <End Role="wynik_bool" Type="Self.wynik_bool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pytanie">
+        <PropertyRef Name="id_pytanie" />
+      </Principal>
+      <Dependent Role="wynik_bool">
+        <PropertyRef Name="id_pytanie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AnkietaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adres" EntityType="Self.adre" />
+    <EntitySet Name="ankietas" EntityType="Self.ankieta" />
+    <EntitySet Name="kategoria_pytania" EntityType="Self.kategoria_pytania" />
+    <EntitySet Name="miejscowoscs" EntityType="Self.miejscowosc" />
+    <EntitySet Name="mieszkaniecs" EntityType="Self.mieszkaniec" />
+    <EntitySet Name="opcjes" EntityType="Self.opcje" />
+    <EntitySet Name="powiat_gmina" EntityType="Self.powiat_gmina" />
+    <EntitySet Name="pytanies" EntityType="Self.pytanie" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ulicas" EntityType="Self.ulica" />
+    <EntitySet Name="wynik_bool" EntityType="Self.wynik_bool" />
+    <EntitySet Name="wynik_lista" EntityType="Self.wynik_lista" />
+    <AssociationSet Name="FK__pytanie__id_anki__1DE57479" Association="Self.FK__pytanie__id_anki__1DE57479">
+      <End Role="ankieta" EntitySet="ankietas" />
+      <End Role="pytanie" EntitySet="pytanies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pytanie__id_kate__1ED998B2" Association="Self.FK__pytanie__id_kate__1ED998B2">
+      <End Role="kategoria_pytania" EntitySet="kategoria_pytania" />
+      <End Role="pytanie" EntitySet="pytanies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__opcje__id_pytani__21B6055D" Association="Self.FK__opcje__id_pytani__21B6055D">
+      <End Role="pytanie" EntitySet="pytanies" />
+      <End Role="opcje" EntitySet="opcjes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wynik_lis__id_op__24927208" Association="Self.FK__wynik_lis__id_op__24927208">
+      <End Role="opcje" EntitySet="opcjes" />
+      <End Role="wynik_lista" EntitySet="wynik_lista" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wynik_boo__id_py__276EDEB3" Association="Self.FK__wynik_boo__id_py__276EDEB3">
+      <End Role="pytanie" EntitySet="pytanies" />
+      <End Role="wynik_bool" EntitySet="wynik_bool" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

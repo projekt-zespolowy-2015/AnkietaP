@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnkietaModelStoreContainer" CdmEntityContainer="AnkietaEntities1">
+    <EntitySetMapping Name="localadmin">
+      <EntityTypeMapping TypeName="AnkietaModel.localadmin">
+        <MappingFragment StoreEntitySet="localadmin">
+          <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+          <ScalarProperty Name="loginin" ColumnName="loginin" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

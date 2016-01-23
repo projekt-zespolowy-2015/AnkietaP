@@ -1,0 +1,67 @@
+﻿@model AnkietaP.Models.localadmin
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>localadmin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.loginin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_admin }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
