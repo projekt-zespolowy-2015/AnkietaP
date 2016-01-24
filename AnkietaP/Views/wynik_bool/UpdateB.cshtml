@@ -1,24 +1,27 @@
 ﻿@model AnkietaP.Models.wynik_bool
 
 @{
-    Layout = null;
+    ViewBag.Title = "Oddano Głos";
+
 }
 
-<!DOCTYPE html>
+
+<h2>Dziekujemy</h2>
+
+
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>UpdateB</title>
-
-
+    <title>Update</title>
 </head>
 <body>
-    <div> 
-        Dziekujemy za oddanie głosu <br />
-
-        
-        
+    <div>
+        <center>
+            Dziekujemy za udzial w ankiecie <br />
+            Aby wrócić do ankiet kliknij: <br />
+            <input type="button" value="Wróć" onclick="location.href='@Url.Action("Lista", "ankietas", null, null)'" />
+        </center>
     </div>
 </body>
 </html>

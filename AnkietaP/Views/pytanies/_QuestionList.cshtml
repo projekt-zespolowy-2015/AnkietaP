@@ -18,7 +18,7 @@
                 @Html.DisplayFor(modelItem => item.nazwa)
             </td>
             <td>
-                <input type="button" value="Wybierz" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = item.id_pytanie , tab = 1   }), null)'" />
+                <input type="button" value="Wybierz" onclick="location.href='@Url.Action("Update","wynik_lista", new { id = item.id_pytanie , tab = 1   }), null)'" />
             </td>
         </tr>
     }

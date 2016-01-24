@@ -24,6 +24,7 @@ namespace AnkietaP.Controllers
         // GET: wynik_lista/Update/5
         public ActionResult Update(int? id, int? tab)
         {
+            id = 1; tab = 3;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -35,8 +36,8 @@ namespace AnkietaP.Controllers
             }
             if (tab == 3) { wynik_bool.nie += 1; }
             if (tab == 2) { wynik_bool.tak += 1; }
-
-            ViewBag.id_opcje = new SelectList(db.opcjes, "wynik_bool","tak","nie", wynik_bool.id_wynik_bool);
+            db.SaveChanges();
+            ViewBag.id_opcje = new SelectList(db.pytanies , "wynik_bool","tak","nie", wynik_bool.id_wynik_bool);
             return View(wynik_bool);
         }
 
@@ -53,7 +54,7 @@ namespace AnkietaP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_opcje = new SelectList(db.opcjes, "wynik_bool", "tak", "nie", wynik_bool.id_wynik_bool);
+            ViewBag.id_opcje = new SelectList(db.pytanies, "wynik_bool", "tak", "nie", wynik_bool.id_wynik_bool);
             return View(wynik_bool);
         }
 

@@ -109,6 +109,7 @@ namespace AnkietaP.Controllers
                 return HttpNotFound();
             }
             wynik_lista.ilosc += 1;
+            db.SaveChanges();
             ViewBag.id_opcje = new SelectList(db.opcjes, "id_opcje", "nazwa", wynik_lista.id_opcje);
             return View(wynik_lista);
         }
