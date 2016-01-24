@@ -27,11 +27,12 @@ namespace AnkietaP.Controllers
         // GET: wynik_lista/Update/5
         public ActionResult UpdateB(int? id, int? tab)
         {
-            id = 1; tab = 3;
+            //id = 1; tab = 3;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             wynik_bool wynik_bool = db.wynik_bool.Find(id);
             if (wynik_bool == null)
             {

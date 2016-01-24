@@ -12,19 +12,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-           Pytanie:  @* @Html.DisplayNameFor(model => model.tresc) *@  
+           Ankieta:  @* @Html.DisplayNameFor(model => model.tresc) *@  
         </dt>
 
         <dd>
-          <p>  @Html.DisplayFor(model => model.tresc)  </p>
+          <p> @Html.DisplayFor(model => model.ankieta.opis)   </p>
         </dd>
 
         <dt>
-           Ankieta:  @* @Html.DisplayNameFor(model => model.ankieta.opis) *@
+           Pytanie:  @* @Html.DisplayNameFor(model => model.ankieta.opis) *@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ankieta.opis)
+            @Html.DisplayFor(model => model.tresc) )
         </dd>
 
         <dt>
