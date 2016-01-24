@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AnkietaP.Models.wynik_bool>
+
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Wyniki</title>
+</head>
+<body>
+    <p>
+     @*   @Html.ActionLink("Create New", "Create") *@ <br /><br />
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pytanie.tresc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tak)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nie)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pytanie.tresc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tak)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nie)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id_wynik_bool }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id_wynik_bool }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id_wynik_bool }) 
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

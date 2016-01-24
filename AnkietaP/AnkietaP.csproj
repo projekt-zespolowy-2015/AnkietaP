@@ -374,6 +374,8 @@
     <Content Include="Views\wynik_lista\Update.cshtml" />
     <Content Include="Views\wynik_bool\UpdateB.cshtml" />
     <Content Include="Views\mieszkaniecs\Login.cshtml" />
+    <Content Include="Views\wynik_bool\Index.cshtml" />
+    <Content Include="Views\wynik_bool\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

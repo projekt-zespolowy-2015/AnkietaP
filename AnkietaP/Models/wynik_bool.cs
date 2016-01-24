@@ -17,8 +17,7 @@ namespace AnkietaP.Models
         public int id_wynik_bool { get; set; }
         public Nullable<int> tak { get; set; }
         public Nullable<int> nie { get; set; }
-        public Nullable<int> id_pytanie { get; set; }
-    
+        public Nullable<int> id_pytanie { get; set; }    
         public virtual pytanie pytanie { get; set; }
     }
 }

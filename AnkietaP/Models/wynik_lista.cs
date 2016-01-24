@@ -17,7 +17,6 @@ namespace AnkietaP.Models
         public int id_wynik_lista { get; set; }
         public Nullable<int> ilosc { get; set; }
         public Nullable<int> id_opcje { get; set; }
-    
         public virtual opcje opcje { get; set; }
     }
 }

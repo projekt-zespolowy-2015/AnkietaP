@@ -18,11 +18,14 @@ namespace AnkietaP.Controllers
         // GET: wynik_bool
         public ActionResult Index()
         {
-            return View();
+
+            var wynik_bool = db.wynik_bool.Include(w => w.pytanie);
+            return View(wynik_bool.ToList());
+           // return View();
         }
 
         // GET: wynik_lista/Update/5
-        public ActionResult Update(int? id, int? tab)
+        public ActionResult UpdateB(int? id, int? tab)
         {
             id = 1; tab = 3;
             if (id == null)
@@ -37,7 +40,7 @@ namespace AnkietaP.Controllers
             if (tab == 3) { wynik_bool.nie += 1; }
             if (tab == 2) { wynik_bool.tak += 1; }
             db.SaveChanges();
-            ViewBag.id_opcje = new SelectList(db.pytanies , "wynik_bool","tak","nie", wynik_bool.id_wynik_bool);
+            ViewBag.id_wynik_bool = new SelectList(db.pytanies , "wynik_bool","tak","nie", wynik_bool.id_wynik_bool);
             return View(wynik_bool);
         }
 
@@ -46,7 +49,7 @@ namespace AnkietaP.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update([Bind(Include = "wynik_bool,tak,nie")] wynik_bool wynik_bool)
+        public ActionResult UpdateB([Bind(Include = "wynik_bool,tak,nie")] wynik_bool wynik_bool)
         {
             if (ModelState.IsValid)
             {
