@@ -15,6 +15,8 @@ namespace AnkietaP.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private AnkietaEntities3 db = new AnkietaEntities3();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -58,8 +60,8 @@ namespace AnkietaP.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            //return View();
-            return RedirectToAction("Listaadm");
+            return View();
+            //return RedirectToAction("Listaadm");
         }
 
         //
@@ -71,8 +73,8 @@ namespace AnkietaP.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Listaadm");
-                //return View(model);
+                //return RedirectToAction("Listaadm");
+                return View(model);
             }
 
             // This doesn't count login failures towards account lockout

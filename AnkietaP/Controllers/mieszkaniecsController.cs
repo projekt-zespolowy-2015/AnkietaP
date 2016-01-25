@@ -41,12 +41,8 @@ namespace AnkietaP.Controllers
         }
 
         public ActionResult Login()
-        {
-           
-                     
+        {                       
             return View();
-
-
         } 
 
         public ActionResult DetailsP(string pes, string pas)

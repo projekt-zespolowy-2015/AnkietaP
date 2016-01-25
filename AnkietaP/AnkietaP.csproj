@@ -376,6 +376,7 @@
     <Content Include="Views\mieszkaniecs\Login.cshtml" />
     <Content Include="Views\wynik_bool\Index.cshtml" />
     <Content Include="Views\wynik_bool\Edit.cshtml" />
+    <Content Include="Views\localadmins\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
