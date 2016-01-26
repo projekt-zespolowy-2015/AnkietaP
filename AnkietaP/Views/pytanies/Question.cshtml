@@ -4,53 +4,47 @@
     ViewBag.Title = "Ankieta";
     
 }
+ 
 
-<h2></h2>
+<div class="jumbotron" style="background-color: white">
+    <div class="container">
+        <div class="col-sm-4">
+            <img class="img-responsive" width="300" src="~/Content/ludzik_pytanie.jpg" />
+        </div>
 
-<div>
-    <h4>Pytanie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-           Ankieta:  @* @Html.DisplayNameFor(model => model.tresc) *@  
-        </dt>
+        <div class="col-sm-8">
 
-        <dd>
-          <p> @Html.DisplayFor(model => model.ankieta.opis)   </p>
-        </dd>
+            @Html.DisplayFor(model => model.ankieta.opis)
+            <br />
+                 
 
-        <dt>
-           Pytanie:  @* @Html.DisplayNameFor(model => model.ankieta.opis) *@
-        </dt>
+                @{
+                    var info = (@Html.DisplayFor(model => model.kategoria_pytania.nazwa)).ToString();
+                    var info2 = "tak/nie";
 
-        <dd>
-            @Html.DisplayFor(model => model.tresc) )
-        </dd>
+                }
 
-        <dt>
-          Typ:  @* @Html.DisplayNameFor(model => model.kategoria_pytania.nazwa) *@
-        </dt>
+                @if (info.Equals(info2))
+                {
+                    @Html.Partial("_Question")
+                }
+                else
+                {
+                    @Html.Partial("_QuestionList")
+                }
 
-        <dd>
-            @Html.DisplayFor(model => model.kategoria_pytania.nazwa)
-        </dd>
 
-    </dl>
-</div>
-<div>
-    
-    @{ 
-        var info= (@Html.DisplayFor(model => model.kategoria_pytania.nazwa)).ToString() ;
-        var info2 = "tak/nie";
-       
-    }
-   
-    @if (info.Equals(info2))
-          {
-              @Html.Partial("_Question" )
-          }
-    else  {
-              @Html.Partial("_QuestionList" )         
-          }
+            </div>
+
+
+
+
+
+
+
+
+            </div>
+    </div>
 
 </div>
+

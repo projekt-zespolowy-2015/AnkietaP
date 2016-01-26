@@ -14,6 +14,11 @@ namespace AnkietaP
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               //"item_details",
+               //"item/{id}",
+               //new {controller = "item", action = "Get"}
+                
+                
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

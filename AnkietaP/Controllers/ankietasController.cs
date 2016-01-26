@@ -21,8 +21,13 @@ namespace AnkietaP.Controllers
         }
 
         // GET: lista
-        public ActionResult Lista()
+        public ActionResult Lista(int? id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Login", "mieszkaniecs");
+            } 
+
             return View(db.ankietas.ToList());
         }
 

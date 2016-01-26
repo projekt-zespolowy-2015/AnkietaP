@@ -1,25 +1,23 @@
 ﻿@model AnkietaP.Models.pytanie
 
+<div class="container" style="background-color: white">
 
-<table class="table">
-    <tr>
-        <th>
-            @* @Html.DisplayNameFor(model => model.nazwa) *@
-        </th>
-        <th>
-            @*   @Html.DisplayNameFor(model => model.pytanie.tresc) *@
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model.opcjes)
-    {
+    <table class="table table-hover table-striped">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nazwa)
-            </td>
-            <td>
-                <input type="button" value="Wybierz" onclick="location.href='@Url.Action("Update","wynik_lista", new { id = item.id_pytanie , tab = 1   }), null)'" />
-            </td>
+            <th>
+                Wybierz jeden:
+            </th> 
         </tr>
-    }
-</table>
+        @foreach (var item in Model.opcjes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazwa)
+                </td>
+                <td>
+                    <input class="btn btn-default"type="button" value="Wybieram" onclick="location.href='@Url.Action("Update","wynik_lista", new { id = item.id_pytanie , tab = 1   }), null)'" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -60,6 +60,7 @@
     <Property Name="nazwisko" Type="varchar" MaxLength="50" />
     <Property Name="telefon" Type="varchar" MaxLength="50" />
     <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="opcje">
     <Key>

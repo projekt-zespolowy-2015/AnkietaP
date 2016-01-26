@@ -1,71 +1,84 @@
 ﻿@model AnkietaP.Models.mieszkaniec
 
-
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Witaj</h2> 
+<div class="jumbotron" style="background-color: white ">
+    <div class="container" align="center">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="~/Content/ludki_rozmowa.jpg" />
+            </div>
 
-<div>
-    <h4>To sa Twoje aktualne dane, jeśli chcesz je zmienic kliknij Edytuj </h4>
-    <hr />
-  
-    <table class="table">
-        <tr>
-            <th>
-                pesel
-            </th>
-            <th>
-                imie
-            </th>
-            <th>
-                nazwisko
-            </th>
-            <th>
-                telefon
-            </th>
-            <th>
-                email
-            </th>
-            <th></th>
-        </tr>
 
-       @* @foreach (var item in Model) *@
-        
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => model.pesel)
-                    
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.imie)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.nazwisko)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.telefon)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.email)
-                </td>
-                <td>
-                 @*   @Html.Action("Edit", "Edit", new { id = Model.id_mieszkaniec }) |
-       @Html.Action("Details", "Details", new { id = Model.id_mieszkaniec })
-    @*   @Html.ActionLink("Delete", "Delete", new { id = item.id_mieszkaniec }) *@
+            <div class="col-sm-6">
 
-                    <input type="button" value="Edytuj" onclick="location.href='@Url.Action("Edit", new { id = Model.id_mieszkaniec, tab=3 }), null)'" />
-                </td>
-            </tr>
-        
-        </table>
-        <p>
-            Przejdz do ankiet: <input type="button" value="Dalej" onclick="location.href='@Url.Action("Lista", "ankietas", null, null)'" />
-            
-        </p>
+                <h4>
+                    <br />
+                    <br />
+                    Tu znajdziesz swoje dane, jeśli chcesz je zmienić kliknij Edytuj.
+                    Możesz także przystąpić do wypełniania ankiety.
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </div>
 </div>
-<p>
-  @*  @Html.ActionLink("Edit", "Edit", new { id = Model.id_mieszkaniec }) |
-    @Html.ActionLink("Back to List", "Index")*@
-</p>
+
+
+<div class="jumbotron">
+    <div class="container" align="left">
+        <div class="row">
+           <h2 align="center"> Twoje Dane:   </h2> 
+            <hr />
+            <div class="col-sm-6" align="center">  
+                    <h3>
+                        Pesel:
+                        @Html.DisplayFor(model => model.pesel)
+                    </h3>
+                    <h3>
+                        Imię:
+                        @Html.DisplayFor(model => model.imie)
+                    </h3>
+                    <h3>
+                        Nazwisko:
+                        @Html.DisplayFor(model => model.nazwisko)
+                    </h3>
+                    <h3>
+                        Telefon:
+                        @Html.DisplayFor(model => model.telefon)
+                    </h3>
+                    <h3>
+                        E-mail:
+                        @Html.DisplayFor(model => model.email)
+                    </h3>
+                    <input class="btn btn-default" type="submit" value="Edytuj" onclick="location.href='@Url.Action("Edit", new { id = Model.id_mieszkaniec, tab=3 }), null)'" />
+                 
+                </div>
+            <div class="col-sm-6" align="center">
+
+                <img class="img-responsive" src="~/Content/ludzik4.jpg" style="box-shadow:4px 4px 12px " />
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="jumbotron" style="background-color:darkblue">
+
+    <h2 style="color:white"  align="center"> Ankiety:   </h2>
+     
+    <hr />
+    <p style="color:white">
+       Kliknij w przycisk, żeby przejść do widoku ankiet: 
+        <br />
+        <input type="button" value="Dalej" onclick="location.href='@Url.Action("Lista", "ankietas", new { id = Model.id_mieszkaniec }, null)'" />
+
+    </p>
+     </div>
+

@@ -1,27 +1,22 @@
 ﻿@model AnkietaP.Models.pytanie
 
 
-<table class="table">
-    <tr>
-        <th>
-            @* @Html.DisplayNameFor(model => model.nazwa) *@
-        </th>
-        <th>
-            @*   @Html.DisplayNameFor(model => model.pytanie.tresc) *@
-        </th>
-        <th></th>
-    </tr>
+<table class="table"> 
    @* @foreach (var item in Model.opcjes) *@
     
         <tr>
             <td>
                @*  @Html.DisplayFor(modelItem => item.nazwa) *@
-                @Html.DisplayFor(model => model.ankieta.opis)
+               @* @Html.DisplayFor(model => model.ankieta.opis) *@
+                @Html.DisplayFor(model => model.tresc)
             </td>
             <td>
-                <input type="button" value="Tak" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = Model.id_pytanie , tab = 2   }), null)'" />
-                <input type="button" value="Nie" onclick="location.href='@Url.Action("Koniec","pytanies", new { id = Model.id_pytanie , tab = 3   }), null)'" />
+                <input class="btn btn-default" type="button" value="Tak" onclick="location.href='@Url.Action("UpdateB","wynik_bool", new { @id = Model.id_pytanie , @tab = 2   })'" />
+                <input  class="btn btn-default" type="button" value="Nie" onclick="location.href='@Url.Action("UpdateB","wynik_bool", new { @id = Model.id_pytanie , @tab = 3   })'" />
             </td>
+            
+
+
         </tr>
     
 </table>

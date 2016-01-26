@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="AnkietaModel.kategoria_pytania" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AnkietaModel.localadmin" Width="1.5" PointX="2.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AnkietaModel.miejscowosc" Width="1.5" PointX="4.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AnkietaModel.mieszkaniec" Width="1.5" PointX="6.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnkietaModel.mieszkaniec" Width="1.75" PointX="6.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AnkietaModel.opcje" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AnkietaModel.powiat_gmina" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AnkietaModel.pytanie" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />

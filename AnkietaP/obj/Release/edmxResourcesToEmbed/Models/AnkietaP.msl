@@ -59,6 +59,7 @@
     <EntitySetMapping Name="mieszkaniecs">
       <EntityTypeMapping TypeName="AnkietaModel.mieszkaniec">
         <MappingFragment StoreEntitySet="mieszkaniec">
+          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="id_mieszkaniec" ColumnName="id_mieszkaniec" />
           <ScalarProperty Name="pesel" ColumnName="pesel" />
           <ScalarProperty Name="imie" ColumnName="imie" />

@@ -1,37 +1,123 @@
 ﻿@using AnkietaP.Models
-@model LoginViewModel
-@* @model mieszkaniec *@
+@model mieszkaniec
 
 @{
     ViewBag.Title = "Strona główna";
 }
-<!--
-<div class="jumbotron">
-</div>-->
+
 
 <div class="row">
-    <div class="col-md-6">
-        <h3>Witaj w programie Sodia</h3>
-        @using (Html.BeginForm("DetailsP", "mieszkaniecs", FormMethod.Get))
-        {
-            <p>
-                Podaj pesel: @Html.TextBox("pes", ViewBag.CurrentFilter as string)
-                
-                <input type="submit" value="Dalej" />
-            </p>
-        }
-          @*  @Html.LabelFor(model => model.pesel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pesel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pesel, "", new { @class = "text-danger" }) *@
-                
-
-
-            </div>
-
-
-
+    <img class="img-responsive" src="~/Content/organizacja-spotkania-biznesowego-clr.jpg " />
 </div>
 
- 
-  
+
+
+<br />
+
+<div class="jumbotron" style="background-color: white ">
+    <div class="container" align="center">
+        <h1>Pomyśl o swoim czasie</h1>
+        <p>SOGiA pomoże Ci bardzo szybko stworzyć ankiety online</p>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <i class="fa fa-mobile fa-5x" style="color: #a3dbff; text-shadow: 1px 2px 5px #000;"></i>
+                <h3>Pełna responsywność</h3>
+                <h4>
+                    SOGiA jest w pełni responsywną stroną (dostosowującą się do rozmiarów ekranu użytkownika) dzięki czemu wszyscy korzystający z niej także na urządzeniach mobilnych będą cieszyć się pełną satysfakcją.
+                </h4>
+            </div>
+            <div class="col-sm-4">
+                <i class="fa fa-group fa-5x " style="color: #a3dbff; text-shadow: 1px 2px 5px #000;"></i>
+                <h3>Cenne informacje</h3>
+                <h4>
+                    Stwórz ankietę i zdobądź opinie osób postronnych!
+                </h4>
+            </div>
+            <div class="col-sm-4">
+                <i class="fa  fa-thumbs-up fa-5x" style="color: #a3dbff; text-shadow: 1px 2px 5px #000;"></i>
+                <h3>Proste głosowanie</h3>
+                <h4> Zaloguj się i zobacz nasze połączenie szybkości z łatwością korzystania. </h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h2>Po co korzystać z SOGiA?</h2>
+        <br />
+        <div class="container" align="left">
+            <i class="fa  fa-check" style="color: #005890"></i> W łatwy sposób pozyskujesz opinie.
+            <br />
+            <i class="fa  fa-check" style="color: #005890"></i> Jedynie w naszym systemie możesz w jednym miejscu zarządzać wszystkimi zdobytymi danymi.
+            <br />
+            <i class="fa  fa-check" style="color: #005890"></i> Ankiety online to przyszłość! Już teraz możesz się tam znaleźć!
+        </div>
+    </div>
+    <br />
+</div>
+
+<div class="jumbotron" style="background-color: #005890 ">
+    <div class="container" align="center">
+        <h2 style=" color: white">Jak zacząć?</h2>
+        <br />
+        <div class="container" align="left">
+            <div style=" color: white">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <br />
+                        1. Zaloguj się wpisując hasło
+                        <br />i swój numer pesel.
+
+                    </div>
+                    <div class="col-sm-8">
+                        <img class="img-thumbnail" width="900" src="~/Content/sogia-logowanie.jpg" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <br />
+                        2. Wybierz ankietę która Cię interesuje i uzupełnij ją.
+
+                    </div>
+                    <div class="col-sm-8">
+                        <img class="img-thumbnail" width="900" src="~/Content/sogia-ankiety.jpg" />
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <br />
+                        3. Pamiętaj, że możesz je wypełniać także na telefonie i tablecie!
+
+                    </div>
+                    <p>
+                    <div class="col-sm-8">
+                        <img class="img-thumbnail" width="900" src="~/Content/sogia-3.jpg" />
+                       
+                    </div>
+
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div class="row">
+
+    <img class="img-responsive" src="~/Content/kontakt.jpg " />
+</div>
+@*
+
+*@

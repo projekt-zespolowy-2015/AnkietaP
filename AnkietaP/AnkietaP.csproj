@@ -258,6 +258,19 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\kontakt.jpg" />
+    <Content Include="Content\LoginRed.jpg" />
+    <Content Include="Content\ludki_rozmowa.jpg" />
+    <Content Include="Content\ludzik-kontakt.jpg" />
+    <Content Include="Content\ludzik4.jpg" />
+    <Content Include="Content\ludzikankieta.jpg" />
+    <Content Include="Content\ludzik_lupa.png" />
+    <Content Include="Content\ludzik_pytanie.jpg" />
+    <Content Include="Content\organizacja-spotkania-biznesowego-clr.jpg" />
+    <Content Include="Content\sogia-3.jpg" />
+    <Content Include="Content\sogia-ankiety.jpg" />
+    <Content Include="Content\sogia-logowanie.jpg" />
+    <Content Include="Content\sogia.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -283,6 +296,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\Ankieta.pubxml" />
     <None Include="Properties\PublishProfiles\AnkietaN.pubxml" />
+    <None Include="Properties\PublishProfiles\AnkietaP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\AnkietaP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\AnkietaP.pubxml" />
     <None Include="Properties\PublishProfiles\azurek.pubxml" />
     <None Include="Properties\PublishProfiles\virtual.pubxml" />

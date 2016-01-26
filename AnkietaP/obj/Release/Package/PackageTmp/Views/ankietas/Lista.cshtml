@@ -5,50 +5,55 @@
     
 }
 
-<h2>Lista ankiet</h2>
 
-<p>
-  @*  @Html.ActionLink("Create New", "Create") *@
-</p>
-<table class="table">
-    <tr>
-        <th>
-          Temat : @* @Html.DisplayNameFor(model => model.opis) *@
-        </th>
-        <th>
-         Wazna od  @*  @Html.DisplayNameFor(model => model.data_od) *@
-        </th>
-        <th>
-         Wazna do  @*   @Html.DisplayNameFor(model => model.data_do) *@
-        </th>
-        <th></th>
-    </tr>
+<div class="jumbotron" style="background-color:white">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.opis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_od)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_do)
-        </td>
-        <td>
-          @*  @using (Html.BeginForm("Index", "pytanies", FormMethod.Get)) *@
-           
-            <input type="button" value="Wybierz" onclick="location.href='@Url.Action("Question", "pytanies", new { id=item.id_ankieta }, null)'" />
+   
+    <div class="col-sm-6">
+        <h2 align="center"><br />Lista ankiet</h2>
+   </div>
+    <div class="col-sm-6">
+        <img class="img-responsive" width="300" src="~/Content/ludzikankieta.jpg" />
+    </div>
+    <br />
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                Temat : @* @Html.DisplayNameFor(model => model.opis) *@
+            </th>
+            <th>
+                Ważna od  @*  @Html.DisplayNameFor(model => model.data_od) *@
+            </th>
+            <th>
+                Ważna do  @*   @Html.DisplayNameFor(model => model.data_do) *@
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data_od)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data_do)
+                </td>
+                <td>
+                    @*  @using (Html.BeginForm("Index", "pytanies", FormMethod.Get)) *@
 
-           
+                    <input type="button"class="btn btn-default"  value="Wybierz" onclick="location.href='@Url.Action("Question", "pytanies", new { id=item.id_ankieta }, null)'" />
 
-           @*
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_ankieta }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_ankieta }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_ankieta })
-            *@
-        </td>
-    </tr>
-}
+                    @*
+                        @Html.ActionLink("Edit", "Edit", new { id=item.id_ankieta }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.id_ankieta }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.id_ankieta })
+                    *@
+                </td>
+            </tr>
+        }
+    </table>
 
-</table>
+</div>
